@@ -23,7 +23,7 @@ public class ActorConverter {
 	public Actor convertActorDtoToActor(ActorDto actorDto) {
 		List<User> usersWhoAdd = actorDto.getUsers_added_this_actor_to_fav()
 			.stream()
-			.map(user -> userConverter.convertUserDtotoUser(user))
+			.map(user -> userConverter.convertUserDtoToUser(user))
 			.collect(Collectors.toList());
 		return Actor.builder().name(actorDto.getName()).usersAddedThisActorToFav(usersWhoAdd).build();
 	}
@@ -31,7 +31,7 @@ public class ActorConverter {
 	public ActorDto convertActorToActorDto(Actor actor) {
 		List<UserDto> usersWhoAdd = actor.getUsersAddedThisActorToFav()
 			.stream()
-			.map(user -> userConverter.converUsertoUserDto(user))
+			.map(user -> userConverter.converUserToUserDto(user))
 			.collect(Collectors.toList());
 		return ActorDto.builder().name(actor.getName()).users_added_this_actor_to_fav(usersWhoAdd).build();
 	}

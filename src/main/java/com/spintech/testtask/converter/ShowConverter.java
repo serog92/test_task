@@ -25,11 +25,11 @@ public class ShowConverter {
 	public Show convertShowDtoToShow(ShowDto show) {
 		List<User> usersAddedThis = show.getUsers_added_this_show_to_fav()
 			.stream()
-			.map(userDto -> userConverter.convertUserDtotoUser(userDto))
+			.map(userDto -> userConverter.convertUserDtoToUser(userDto))
 			.collect(Collectors.toList());
 		List<User> usersUnwatchedThis = show.getUsers_unwatched_this_show()
 			.stream()
-			.map(userDto -> userConverter.convertUserDtotoUser(userDto))
+			.map(userDto -> userConverter.convertUserDtoToUser(userDto))
 			.collect(Collectors.toList());
 		return Show.builder().tmdb_key(show.getKey())
 			.usersAddedThisShowToFav(usersAddedThis)
